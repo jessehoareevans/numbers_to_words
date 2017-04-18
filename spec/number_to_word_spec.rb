@@ -22,6 +22,15 @@ describe('Fixnum#number_to_word') do
     expect(2217.number_to_word()).to(eq('two-thousand two-hundred seventeen'))
   end
   it('take a four-digit number with a zero and return the correct word') do
-    expect(2029.number_to_word()).to(eq('two-thousand twenty-nine'))
+    expect(2009.number_to_word()).to(eq('two-thousand -nine'))
+  end
+  it('take a five-digit number with a teen and return the correct word') do
+    expect(22118.number_to_word()).to(eq('twenty-two thousand, one-hundred eighteen'))
+  end
+  it('take a five-digit number and return the correct word') do
+    expect(22222.number_to_word()).to(eq('twenty-two thousand, two-hundred twenty-two'))
+  end
+  it('take a five-digit number with a zero and return the correct word') do
+    expect(22022.number_to_word()).to(eq('twenty-two thousand, two-hundred twenty two'))
   end
 end
